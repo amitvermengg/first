@@ -401,7 +401,8 @@ app.get("/api/myorder/:userId", async (req, res) => {
 
 
 
-mongoose.connect("mongodb://localhost:27017/firstProject")
+// mongoose.connect("mongodb://localhost:27017/firstProject")
+mongoose.connect("mongodb+srv://amitverma6224_db_user:FrmRWzgdM91sT4hq@cluster0.dydrpyh.mongodb.net/firstProject")
     .then(() => {
         app.listen(port, () => {
             console.log(`server Start port no is ${port}`);
