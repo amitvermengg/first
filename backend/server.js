@@ -6,7 +6,9 @@ let bcrypt = require("bcrypt")
 
 
 let app = express()
-let port = 4000
+let PORT = 4000
+
+
 app.use(cors())
 
 app.use(express.json())
@@ -257,7 +259,10 @@ app.post("/addToCart/:userID", async (req, res) => {
 
 app.get("/api/cart/:userid", async (req, res) => {
     try {
-        const allProduct = await Cart.findOne({ userID: req.params.userid }).populate("products.productId");
+        const allProduct = await Cart.findOne({ userID: req.params.userid}).populate("products.productId");
+       if (!allProduct) {
+        return
+       } 
         res.status(200).json(allProduct.products);
     } catch (error) {
         console.log(error);
@@ -404,8 +409,8 @@ app.get("/api/myorder/:userId", async (req, res) => {
 // mongoose.connect("mongodb://localhost:27017/firstProject")
 mongoose.connect("mongodb+srv://amitverma6224_db_user:FrmRWzgdM91sT4hq@cluster0.dydrpyh.mongodb.net/firstProject")
     .then(() => {
-        app.listen(port, () => {
-            console.log(`server Start port no is ${port}`);
+        app.listen(PORT, () => {
+            console.log(`server Start port no is ${PORT}`);
         })
 
     })
