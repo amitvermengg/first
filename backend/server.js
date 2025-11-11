@@ -1,8 +1,8 @@
 let express = require("express")
 let mongoose = require("mongoose")
 let cors = require("cors")
-const { transformWithEsbuild } = require("vite")
-let bcrypt = require("bcrypt")
+
+const bcrypt = require("bcrypt")
 
 
 let app = express()
@@ -412,9 +412,7 @@ mongoose.connect("mongodb+srv://amitverma6224_db_user:FrmRWzgdM91sT4hq@cluster0.
         app.listen(PORT, () => {
             console.log(`server Start port no is ${PORT}`);
         })
-
     })
-
     .catch((error) => {
         console.log(error);
     })

@@ -14,7 +14,7 @@ import { cartContext } from "../context/AddToCartContextProvider"
 import { useContext } from "react"
 function ChooseUs() {
     const [allproduct, setallprduct] = useState([])
-    let {addToCart } =  useContext(cartContext)
+    let { addToCart } = useContext(cartContext)
     async function getAllproduct() {
         try {
             const res = await fetch("http://localhost:4000/getAllProduct")
@@ -62,35 +62,15 @@ function ChooseUs() {
                         {
                             allproduct.map((item) => {
                                 return (
-                                    <div className="col-md-3 card pt-3">
-                                        <img src={item.imgPath} alt="" width={"100%"} />
+                                    <div className="col-md-4 card pt-3">
+                                        <img src={item.imgPath} alt="" height={"100%"} width={"100%"} />
                                         <h3 className="text-center   bg-danger text-white BROWSE  ">{item.name} </h3>
-                                        <button className="btn bg-primary text-white BROWSE" onClick={()=>{addToCart(item._id)}}>ADD TO CART</button>
+                                        <button className="btn bg-primary text-white BROWSE" onClick={() => { addToCart(item._id) }}>ADD TO CART</button>
                                     </div>
                                 )
                             })
                         }
-                        {/* <div className="col card pt-3">
-                            <img src="yogurt-bulgarian_500x500 (1).jpg" alt="" width={"100%"} />
-                            <h3 className="text-center   bg-danger text-white BROWSE  ">CURD </h3>
-                            <button className="btn bg-primary text-white BROWSE " >ADD TO CART</button>
-                        </div>
-                        <div className="col card pt-3 ">
-                            <img src="src/components/milk.jpg" alt="" width={"100%"} />
-                            <h3 className="text-center   bg-danger text-white BROWSE ">MILK</h3>
-                            <button className="btn bg-primary text-white BROWSE " >ADD TO CART</button>
-                        </div>
-                        <div className="col card  pt-3">
-                            <img src="white-cheese_500x500 (1).jpg" alt="" width={"100%"} />
-                            <h3 className="text-center   bg-danger text-white BROWSE ">CHEESE</h3>
-                            <button className="btn bg-primary text-white BROWSE ">ADD TO CART</button>
-
-                        </div>
-                        <div className="col card pt-3">
-                            <img src="src/components/ghee_500x500.jpg" alt="" width={"100%"} />
-                            <h3 className="text-center  bg-danger text-white BROWSE  ">GHEE</h3>
-                            <button className="btn bg-primary text-white BROWSE ">ADD TO CART</button>
-                        </div> */}
+                       
                     </div>
                 </div>
             </div>
